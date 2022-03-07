@@ -42,3 +42,12 @@ resource "aws_s3_bucket_object" "objects" {
 $ terraform apply -target="aws_s3_bucket_object.objects[2]" -target="aws_s3_bucket_object.objects[3]"
 ```
 
+III. Target bucket object names
+
+1. Remove the `prefix` argument from the `random_pet.object_names` resource in `main.tf`.
+
+2. apply the config and confirm `yes`
+```
+$ terraform apply -target="aws_s3_bucket_object.objects[2]"
+```
+Terraform updated all five of the names because the entire `aws_s3_bucket_objects.objects` resource depends on the entire `random_pet.object_names`

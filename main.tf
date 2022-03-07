@@ -35,7 +35,7 @@ resource "random_pet" "object_names" {
 
   length    = 5
   separator = "_"
-  prefix    = "learning"
+#  prefix    = "learning"
 }
 
 resource "aws_s3_bucket_object" "objects" {
