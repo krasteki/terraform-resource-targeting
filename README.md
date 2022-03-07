@@ -25,3 +25,20 @@ $ terraform plan -target="module.s3_bucket"
 ```
 $ terraform apply
 ```
+
+II. Target specific bucket objects
+
+1. Update `main.tf` contents of the bucket objects.
+```
+resource "aws_s3_bucket_object" "objects" {
+    ###
+-  content      = "Example object #${count.index}"
++  content      = "Bucket object #${count.index}"
+    ###
+}
+```
+2. Apply this change to two of the bucket objects. Confirm with a `yes`
+```
+$ terraform apply -target="aws_s3_bucket_object.objects[2]" -target="aws_s3_bucket_object.objects[3]"
+```
+
