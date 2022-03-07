@@ -51,3 +51,16 @@ III. Target bucket object names
 $ terraform apply -target="aws_s3_bucket_object.objects[2]"
 ```
 Terraform updated all five of the names because the entire `aws_s3_bucket_objects.objects` resource depends on the entire `random_pet.object_names`
+
+IV. Destroy your infrastructure
+
+1. Terraform's destroy command also accepts resource targeting.
+```
+$ terraform destroy -target="aws_s3_bucket_object.objects"
+```
+
+2. Destroy the rest of the infrastructure 
+
+```
+$ terraform destroy
+```
